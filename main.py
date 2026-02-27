@@ -23,17 +23,17 @@ col1,col2=st.columns([1,1])
 #Delet Section
 with col1:
     if st.session_state.list_of_task:
-        deleted_task=st.selectbox("Select Task To Delet",(st.session_state.list_of_task))
-        if st.button("Delet",icon=":material/delete:"):
+        deleted_task=st.selectbox("Select Task To Delete",(st.session_state.list_of_task))
+        if st.button("Delete",icon=":material/delete:"):
             st.session_state.list_of_task.remove(deleted_task)
 
 #manipulated Section
 with col2:
      if st.session_state.list_of_task:
-        manipulated_task=st.selectbox("Select Task To manipulated",(st.session_state.list_of_task))
+        manipulated_task=st.selectbox("Select Task To Change",(st.session_state.list_of_task))
         if manipulated_task:
             new_task=st.text_input(label="Add New Task", placeholder="Add  New Task Here",icon=":material/assignment:")
-            if st.button("Change Task",icon=":material/change_circle:"):
+            if st.button("Change",icon=":material/change_circle:"):
                 if new_task:
                     index_of_new_task=st.session_state.list_of_task.index(manipulated_task)
                     st.session_state.list_of_task[index_of_new_task]=new_task    
