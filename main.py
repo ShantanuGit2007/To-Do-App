@@ -33,7 +33,11 @@ with col2:
         manipulated_task=st.selectbox("Select Task To Change",(st.session_state.list_of_task))
         if manipulated_task:
             new_task=st.text_input(label="Add New Task", placeholder="Add  New Task Here",icon=":material/assignment:")
+<<<<<<< HEAD
             if st.button("Change",icon=":material/change_circle:",key="change_button"):
+=======
+            if st.button("Change",icon=":material/change_circle:"):
+>>>>>>> 0744af42e39eb97ec722e020a6ff3a9408df4217
                 if new_task:
                     index_of_new_task=st.session_state.list_of_task.index(manipulated_task)
                     st.session_state.list_of_task[index_of_new_task]=new_task    
