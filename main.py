@@ -5,10 +5,8 @@ if "list_of_task" not in st.session_state:
     st.session_state.list_of_task=[]
 
 #Header Section
-st.markdown('''
-<center style: font-family="font-family: "Source Sans", sans-serif;"><h2>To-Do-App📝</h2></center>
-''',
-unsafe_allow_html=True)
+st.header("To-Do-App",text_alignment="center")
+
 #Task input section
 task=st.text_input(label="Add Task", placeholder="Add Task Here",icon=":material/assignment:")
 
@@ -20,6 +18,7 @@ if st.button("Add Task",icon=":material/task_alt:"):
 
 #Delet and manipulated Section
 col1,col2=st.columns([1,1])
+
 #Delet Section
 with col1:
     if st.session_state.list_of_task:
@@ -47,11 +46,10 @@ if st.session_state.list_of_task:
 else:
     st.write("No tasks yet. Add some!")
 st.divider()
+
 #Clear All Section
 if st.button("Clear Task",icon=":material/delete_sweep:"):
     st.session_state.list_of_task.clear()
-#Fotter Section
-st.markdown('''
-<center style: font-family="font-family: "Source Sans", sans-serif;"><p> "Built With ❤️ and fueled by ☕️" </p></center>
-''',
-unsafe_allow_html=True)
+
+#Footer Section
+st.markdown("Built With ❤️ and fueled by ☕️", text_alignment="center")
