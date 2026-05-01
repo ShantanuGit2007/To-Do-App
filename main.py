@@ -1,5 +1,8 @@
 import streamlit as st
 
+#Logo
+st.logo("logo.png",size="large")
+
 #List for store task
 if "list_of_task" not in st.session_state:
     st.session_state.list_of_task=[]
@@ -25,6 +28,7 @@ with col1:
         deleted_task=st.selectbox("Select Task To Delete",(st.session_state.list_of_task))
         if st.button("Delete",icon=":material/delete:"):
             st.session_state.list_of_task.remove(deleted_task)
+            st.warning("Task Deleted")
 
 #manipulated Section
 with col2:
@@ -36,7 +40,8 @@ with col2:
             # if st.button("Change",icon=":material/change_circle:"):
                 if new_task:
                     index_of_new_task=st.session_state.list_of_task.index(manipulated_task)
-                    st.session_state.list_of_task[index_of_new_task]=new_task    
+                    st.session_state.list_of_task[index_of_new_task]=new_task
+                    st.info("Task Changed")    
 
 #Display Task Section
 st.divider()
@@ -50,6 +55,7 @@ st.divider()
 #Clear All Section
 if st.button("Clear Task",icon=":material/delete_sweep:"):
     st.session_state.list_of_task.clear()
+    st.info("All Task Cleared")
 
 #Footer Section
 st.markdown("Built With ❤️ and fueled by ☕️", text_alignment="center")
